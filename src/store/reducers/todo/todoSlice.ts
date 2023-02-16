@@ -1,6 +1,6 @@
-import { todoState, ITodos } from "../../../types/ITodos";
+import { todoState, ITodos } from "../../../types/ITodo";
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import {DeleteTask, AddTask, getTodos } from "./todoAction";
+import {checkbox,DeleteTask, AddTask, getTodos } from "./todoAction";
 
 
 const initialState:todoState = {
@@ -35,6 +35,14 @@ export const todoSlice = createSlice({
         builder.addCase(DeleteTask.fulfilled, (state, action:PayloadAction<string>) => {
             state.isLoading = false
             state.todos = state.todos.filter(item => item._id !== action.payload)
+        })
+
+        builder.addCase(checkbox.pending, (state) => {
+            state.isLoading = true
+        })
+        builder.addCase(checkbox.fulfilled, (state, action:PayloadAction<ITodos>) => {
+            state.isLoading = false
+            state.todos = state.todos.map(item => item._id === action.payload._id? action.payload:item)
         })
     },
 })

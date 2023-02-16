@@ -1,6 +1,6 @@
 import { combineReducers } from "@reduxjs/toolkit";
 import { configureStore } from "@reduxjs/toolkit";
-import todoSlice from "./reducers/todos/todoSlice";
+import todoSlice from "./reducers/todo/todoSlice";
 
 
 

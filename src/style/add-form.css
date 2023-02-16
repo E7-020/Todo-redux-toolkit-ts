@@ -81,3 +81,21 @@
     margin-top: 18px;
     margin-left: 8px;
 }
+
+
+.circle{
+    border-radius: 50%;
+    border: 5px   solid rgba(249, 11, 11, 0.1);
+    border-top: 5px solid #fff;
+    animation: animation 2s infinite linear;
+    }
+
+    @keyframes animation {
+        0%{
+            transform: translate(-15%,50%) rotate(0deg);
+        }
+        100%{
+            transform: translate(-15%,50%) rotate(360deg);
+        }
+    }
+

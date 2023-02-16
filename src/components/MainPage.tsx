@@ -1,17 +1,15 @@
-import Connection from "../connection/connection";
-import { Addition } from "./additionalСomponents/Addition";
+import { AddForm } from "./additionalСomponents/AddForm";
 import { TaskList } from "./additionalСomponents/TaskList";
 
-
 export const Todos = () => {
-    
+
   return (
     
     <div className="container">
         
-        <Addition/>
+        <AddForm  />
         <TaskList/>
-        <Connection/>
+        
     </div>
   );
 };

@@ -1,18 +1,23 @@
 import Logo from '../../assets/Logo.png';
 import Plus from '../../assets/plus.png';
-import '../../style/addition.css';
+import '../../style/add-form.css';
 import { useState } from "react";
-import { AddTask,DeleteTask } from '../../store/reducers/todos/todoAction';
+import { AddTask } from '../../store/reducers/todo/todoAction';
 import {useAppDispatch, useAppSelector} from "../../hooks/hooks";
 
 
-export const Addition = () => {
+export const AddForm = () => {
     const [value,setValue] = useState<string>("")
-    const { todos, isLoading } = useAppSelector(state => state.todos)
+
+    const {  isLoading } = useAppSelector(state => state.todos)
+
     const dispatch = useAppDispatch()
+
     const addTodos = () => {
         dispatch(AddTask(value))
+        setValue("")
     }
+
    
   return (
     <div>
@@ -32,8 +37,7 @@ export const Addition = () => {
               <p>Добавить</p>  
             </div>
             <div className='addition-third-second-block-btn'>
-               {/* <img className="addition-third-block-btn-img" src={Plus} alt="gg" /> */}
-               {!isLoading ? <img className="addition-third-block-btn-img" src={Plus} alt="gg" />  : <img src='' alt="" />}
+               {!isLoading ? <img className="addition-third-block-btn-img" src={Plus} alt="gg" />  : <span className='circle'>.</span>}
             </div>
         </div>
       </div>

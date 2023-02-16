@@ -1,4 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
+import { ITodos } from "../../../types/ITodo";
 
 export const getTodos = createAsyncThunk("users/upload", async function () {
   const res = await fetch(`https://unicode-todo.onrender.com/todos`);
@@ -34,5 +35,23 @@ export const DeleteTask = createAsyncThunk(
   const data = await res.json()
   return id 
  }
+)
+
+export const checkbox = createAsyncThunk(
+  'user/checkbox',
+  async function(todo: ITodos){
+    const res = await fetch(`https://unicode-todo.onrender.com/todos/${todo._id}`,{
+      method:"PATCH",
+      headers:{
+        'Content-type': 'application/json; charset=UTF-8'
+      },
+      body: JSON.stringify({
+        completed: !todo.completed,
+      })
+    })
+    const data = await res.json()
+
+    return data
+  }
 )
 
