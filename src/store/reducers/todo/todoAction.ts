@@ -8,50 +8,51 @@ export const getTodos = createAsyncThunk("users/upload", async function () {
 
 export const AddTask = createAsyncThunk(
   "user/create",
-  async function (value:string) {
-    const res = await fetch(`https://unicode-todo.onrender.com/todos`,{
-      method:'POST',
-      headers:{
-        'Content-type': 'application/json; charset=UTF-8'
+  async function (value: string) {
+    const res = await fetch(`https://unicode-todo.onrender.com/todos`, {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
       },
       body: JSON.stringify({
         title: value,
         created_at: "1676106043670",
         completed: false,
-      })
-    })
-    const data = await res.json()
-    return data
+      }),
+    });
+    const data = await res.json();
+    return data;
   }
-
-)
+);
 
 export const DeleteTask = createAsyncThunk(
- " user/delete",
- async function(id:string){
-  const res = await fetch(`https://unicode-todo.onrender.com/todos/${id}`,{
-    method:"DELETE"
-  })
-  const data = await res.json()
-  return id 
- }
-)
+  " user/delete",
+  async function (id: string) {
+    const res = await fetch(`https://unicode-todo.onrender.com/todos/${id}`, {
+      method: "DELETE",
+    });
+    const data = await res.json();
+    return id;
+  }
+);
 
 export const checkbox = createAsyncThunk(
-  'user/checkbox',
-  async function(todo: ITodos){
-    const res = await fetch(`https://unicode-todo.onrender.com/todos/${todo._id}`,{
-      method:"PATCH",
-      headers:{
-        'Content-type': 'application/json; charset=UTF-8'
-      },
-      body: JSON.stringify({
-        completed: !todo.completed,
-      })
-    })
-    const data = await res.json()
+  "user/checkbox",
+  async function (todo: ITodos) {
+    const res = await fetch(
+      `https://unicode-todo.onrender.com/todos/${todo._id}`,
+      {
+        method: "PATCH",
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+        body: JSON.stringify({
+          completed: !todo.completed,
+        }),
+      }
+    );
+    const data = await res.json();
 
-    return data
+    return data;
   }
-)
-
+);

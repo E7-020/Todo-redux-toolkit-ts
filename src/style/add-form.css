@@ -1,27 +1,30 @@
-.container{
-  position: relative;
+.container {
+    position: relative;
 }
-.addition{
+
+.addition {
     display: flex;
     justify-content: center;
     padding-top: 76px;
     padding-bottom: 63px;
     background: #0D0D0D;
 }
-.addition-second-block{
+
+.addition-second-block {
     padding-left: 9px;
     padding-top: 20px;
 }
 
-.addition-second-block-text{
-    
+.addition-second-block-text {
+
     font-weight: 900;
     font-size: 20px;
     line-height: 24px;
     font-family: 'Inter', sans-serif;
     color: #4EA8DE;
 }
-.addition-second-block-second-text{
+
+.addition-second-block-second-text {
     margin-left: 5px;
     font-weight: 900;
     font-size: 20px;
@@ -30,7 +33,7 @@
     color: #5E60CE;
 }
 
-.addition-input{
+.addition-input {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -40,10 +43,10 @@
     top: 165px;
 }
 
-.addition-input input{
-   
+.addition-input input {
+
     padding-left: 10px;
-   
+
     box-sizing: border-box;
     display: flex;
     flex-direction: row;
@@ -52,15 +55,15 @@
     gap: 8px;
     width: 603px;
     height: 54px;
-     
+
     background-color: #262626;
-    
+    color: white;
     border: 1px solid #0D0D0D;
     border-radius: 8px;
     font-family: 'Inter', sans-serif;
 }
 
-.addition-third-block{
+.addition-third-block {
     cursor: pointer;
     display: flex;
     margin-left: 8px;
@@ -70,32 +73,38 @@
     background: #1E6F9F;
     border-radius: 8px;
     border: none;
-    color: white;  
+    color: white;
 }
-.addition-third-block-btn{
+
+.addition-third-block-btn {
     margin-top: 16px;
     margin-left: 16px;
-    
+
 }
-.addition-third-second-block-btn{
+
+.addition-third-second-block-btn {
     margin-top: 18px;
     margin-left: 8px;
 }
 
 
-.circle{
+.first-load {
+
+    border: 2px solid #F2F2F2;
     border-radius: 50%;
-    border: 5px   solid rgba(249, 11, 11, 0.1);
-    border-top: 5px solid #fff;
-    animation: animation 2s infinite linear;
+    border-top: 1px solid #026daa;
+    width: 20px;
+    height: 20px;
+    animation: rotate 2s linear infinite;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
     }
 
-    @keyframes animation {
-        0%{
-            transform: translate(-15%,50%) rotate(0deg);
-        }
-        100%{
-            transform: translate(-15%,50%) rotate(360deg);
-        }
+    100% {
+        transform: rotate(360deg);
     }
 
+}

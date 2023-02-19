@@ -1,24 +1,22 @@
-import Logo from '../../assets/Logo.png';
-import Plus from '../../assets/plus.png';
-import '../../style/add-form.css';
+import Logo from "../../assets/Logo.png";
+import Plus from "../../assets/plus.png";
+import "../../style/add-form.css";
 import { useState } from "react";
-import { AddTask } from '../../store/reducers/todo/todoAction';
-import {useAppDispatch, useAppSelector} from "../../hooks/hooks";
-
+import { AddTask } from "../../store/reducers/todo/todoAction";
+import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
 
 export const AddForm = () => {
-    const [value,setValue] = useState<string>("")
+  const [value, setValue] = useState<string>("");
 
-    const {  isLoading } = useAppSelector(state => state.todos)
+  const { isLoading, isLoadingAdd } = useAppSelector((state) => state.todos);
 
-    const dispatch = useAppDispatch()
+  const dispatch = useAppDispatch();
 
-    const addTodos = () => {
-        dispatch(AddTask(value))
-        setValue("")
-    }
+  const addTodos = () => {
+    dispatch(AddTask(value));
+    setValue("");
+  };
 
-   
   return (
     <div>
       <div className="addition">
@@ -31,14 +29,27 @@ export const AddForm = () => {
         </div>
       </div>
       <div className="addition-input">
-        <input value={value} onChange={(e) => setValue(e.target.value)} placeholder="Что вы планируете сделать?" type="text" />
-        <div className="addition-third-block">
-            <div onClick={addTodos} className='addition-third-block-btn'>
-              <p>Добавить</p>  
-            </div>
-            <div className='addition-third-second-block-btn'>
-               {!isLoading ? <img className="addition-third-block-btn-img" src={Plus} alt="gg" />  : <span className='circle'>.</span>}
-            </div>
+        <input
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
+          placeholder="Что вы планируете сделать?"
+          type="text"
+        />
+        <div onClick={addTodos} className="addition-third-block">
+          <div className="addition-third-block-btn">
+            <p>Добавить</p>
+          </div>
+          <div className="addition-third-second-block-btn">
+            {!isLoadingAdd ? (
+              <img
+                className="addition-third-block-btn-img"
+                src={Plus}
+                alt="gg"
+              />
+            ) : (
+              <div className="first-load"></div>
+            )}
+          </div>
         </div>
       </div>
     </div>
